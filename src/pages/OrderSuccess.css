@@ -1,0 +1,33 @@
+.order-success-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-card h1 {
+  color: #2ecc71;
+  margin-bottom: 10px;
+}
+
+.success-card p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.continue-btn {
+  text-decoration: none;
+  background-color: #2874f0;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+}
