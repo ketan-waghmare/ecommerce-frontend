@@ -33,7 +33,16 @@ function Navbar({ cartCount }) {
             <Link to="/register">Register</Link>
           </>
         ) : (
-          <Link className="logout-btn" onClick={logout}>Logout</Link>
+         // <Link className="logout-btn" onClick={logout}>Logout</Link>
+         <>
+            <span style={{ color: 'white', fontSize: '14px' }}>
+              👋 {name}
+            </span>
+            {/* ✅ button instead of Link */}
+            <button className="logout-btn" onClick={logout}>
+              Logout
+            </button>
+          </>
         )}
 
 
