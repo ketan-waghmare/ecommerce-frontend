@@ -26,13 +26,16 @@ function Login() {
       alert("Login successful");
       console.log(res.data); // user data
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.role);      // ← ADD
+      localStorage.setItem("name", res.data.name);      // ← ADD
+      localStorage.setItem("userId", res.data.userId);  // ← ADD
 
       const guestCartId = localStorage.getItem("cartId");
 
       // 🔥 MERGE CART AFTER LOGIN
       if (guestCartId) {
         await mergeCart(guestCartId);
-        // localStorage.removeItem("cartId");
+        localStorage.removeItem("cartId");
       }
 
       // 🔥 REDIRECT LOGIC

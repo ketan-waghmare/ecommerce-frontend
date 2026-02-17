@@ -3,18 +3,16 @@ import "./Navbar.css";
 
 function Navbar({ cartCount }) {
   const token = localStorage.getItem("token");
-  const isLoggedIn =
-    token && token !== "null" && token !== "undefined";
+  const isLoggedIn = token && token !== "null" && token !== "undefined";
+
+  const role = localStorage.getItem("role");
+  const name = localStorage.getItem("name");
+  const isAdmin = role === "ADMIN";
+
   const logout = () => {
     // 🔥 Remove only token
     localStorage.removeItem("token");
-
     localStorage.clear();
-
-    // ❌ Do NOT remove cartId
-    // Guest cart should continue
-
-    // 🔥 Hard reload to reset state & security context
     window.location.href = "/";
   };
 
@@ -23,12 +21,10 @@ function Navbar({ cartCount }) {
       <h2>E-Commerce</h2>
       <div>
         <Link to="/">Products</Link>
-        <Link to="/add-product">Add Product</Link>
 
-
-        {/* <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link> */}
-
+        {isAdmin && (
+          <Link to="/add-product">Add Product</Link>
+        )}
 
         {/* 🔥 AUTH LINKS */}
         {!isLoggedIn ? (
@@ -37,11 +33,14 @@ function Navbar({ cartCount }) {
             <Link to="/register">Register</Link>
           </>
         ) : (
-          <button className="logout-btn" onClick={logout}>
-            Logout
-          </button>
+          <Link className="logout-btn" onClick={logout}>Logout</Link>
         )}
 
+
+        {/* ✅ Show My Orders ONLY when logged in */}
+        {isLoggedIn && (
+          <Link to="/orders">My Orders 📦</Link>
+        )}
 
         {/* 🔥 NEW CART LINK */}
         <Link to="/cart">

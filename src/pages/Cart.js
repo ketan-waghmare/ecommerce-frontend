@@ -31,7 +31,6 @@ function Cart({ refreshCart }) {
   };
 
   const handleCheckout = () => {
-    localStorage.removeItem("token");
     const token = localStorage.getItem("token");
     console.log("Token value:", token);
     console.log("Token type:", typeof token);

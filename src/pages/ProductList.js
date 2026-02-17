@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "../services/cartService";
 
 function ProductList({ refreshCart }) {
+
+  const role = localStorage.getItem("role");
+  const isAdmin = role === "ADMIN";
+
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -35,13 +39,17 @@ function ProductList({ refreshCart }) {
             <p>{p.description}</p>
             <p className="price">₹{p.price}</p>
 
+            {isAdmin && (
             <button onClick={() => deleteProduct(p.id)} className="delete-btn">
               Delete
             </button>
+            )}  
 
+            {isAdmin && (
             <button onClick={() => navigate(`/edit-product/${p.id}`)}>
               Edit
             </button>
+            )}
 
             <button onClick={() => addToCart(p.id).then(() => {
               refreshCart();

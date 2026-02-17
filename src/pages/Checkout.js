@@ -34,10 +34,19 @@ function Checkout({ refreshCart }) {
 
   }, []);
 
+  const [shippingInfo, setShippingInfo] = useState({
+    shippingAddress: 'suguna apt',
+    shippingCity: 'HYD',
+    shippingState: 'telangana',
+    shippingZip: '500016',
+    shippingPhone: '123456789',
+    paymentMethod: 'COD'
+});
+
   const placeOrder = () => {
     axios.post(
-      `http://localhost:8080/api/orders/place/${cart.id}`,
-      {}, // ✅ request body (empty)
+      `http://localhost:8080/api/orders/place`,
+      shippingInfo,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -46,8 +55,15 @@ function Checkout({ refreshCart }) {
 
     )
       .then(res => {
+        console.log('✅ Order placed:', res.data);
+        localStorage.removeItem('cartId');  // Clear cartId after order
         refreshCart();
         navigate("/order-success", { state: res.data });
+      })
+
+      .catch(err => {
+          console.error('❌ Order failed:', err);
+          alert(err.response?.data || 'Failed to place order');
       });
   };
 
