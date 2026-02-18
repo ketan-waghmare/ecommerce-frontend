@@ -4,7 +4,6 @@ import "./Navbar.css";
 function Navbar({ cartCount }) {
   const token = localStorage.getItem("token");
   const isLoggedIn = token && token !== "null" && token !== "undefined";
-
   const role = localStorage.getItem("role");
   const name = localStorage.getItem("name");
   const isAdmin = role === "ADMIN";

@@ -14,10 +14,18 @@ export const updateProduct = (id, product) =>
   axios.put(`${API_URL}/${id}`, product);
 
 export const deleteProduct = (id) =>
-  axios.delete(`${API_URL}/${id}`);
+  axios.delete(`${API_URL}/${id}`, {
+  });
 
 export const deleteProductById = (id) => {
-  return axios.delete(`${API_URL}/${id}`);
+  return axios.delete(
+    `${API_URL}/${id}`,
+    {
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+     }
+    }
+);
 };
 
 export const addProduct = (product) => {

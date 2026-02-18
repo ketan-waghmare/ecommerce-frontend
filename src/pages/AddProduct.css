@@ -20,3 +20,92 @@
   border: none;
   border-radius: 5px;
 }
+
+/* Add these to your existing AddProduct.css file */
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ffcdd2;
+  font-size: 14px;
+}
+
+.image-upload-section {
+  margin-bottom: 20px;
+}
+
+.image-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.image-input {
+  display: none;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 40px 80px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.upload-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.upload-hint {
+  color: #999;
+  font-size: 12px;
+}
+
+.image-preview-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-preview {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 59, 48, 0.9);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.remove-image-btn:hover {
+  background: rgba(255, 59, 48, 1);
+}
