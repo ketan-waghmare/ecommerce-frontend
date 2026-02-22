@@ -17,7 +17,7 @@ function Navbar({ cartCount }) {
 
   return (
     <nav className="navbar">
-      <h2>E-Commerce</h2>
+      <h2>K&M Boutique</h2>
       <div>
         <Link to="/">Products</Link>
 

@@ -42,8 +42,6 @@ function ProductList({ refreshCart }) {
 
   return (
     <div className="container">
-      <h2>Product List</h2>
-
       {message && (
         <div className="success-message">
           ✅ {message}
