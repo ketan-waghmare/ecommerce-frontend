@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../services/userService";
 import { mergeCart } from "../services/cartService";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./AddProduct.css";
 
 function Login() {
@@ -10,7 +10,7 @@ function Login() {
     password: ""
   });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const routerLocation = useLocation(); // ✅ rename
 
   const handleChange = (e) => {
@@ -42,7 +42,10 @@ function Login() {
       const params = new URLSearchParams(routerLocation.search);
       const redirect = params.get("redirect");
 
-      navigate(redirect === "checkout" ? "/checkout" : "/");
+      // navigate(redirect === "checkout" ? "/checkout" : "/");
+      // window.location.href ='/';
+
+      window.location.href = redirect === "checkout" ? "/checkout" : "/";
 
     } catch (err) {
       console.error(err);
