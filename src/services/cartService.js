@@ -4,14 +4,6 @@ import { getCartId } from "../utils/cartId";
 
 const BASE_URL = "http://localhost:8080/api/cart";
 
-// export const addToCart = (productId,quantity = 1) => {
-//   console.log("Token == > " + localStorage.getItem("token"));
-//     const cartId = getCartId();
-//     return axios.post(`${BASE_URL}/add`,null,{
-//         params: {cartId,productId,quantity}
-//     });
-// };
-
 export const addToCart = async (productId,quantity = 1) => {
   try {
     const token =  localStorage.getItem("token");
@@ -73,53 +65,6 @@ export const addToCart = async (productId,quantity = 1) => {
     throw error;
   }
 }
-// export const addToCart = (productId, quantity = 1) => {
-
-//   const token = localStorage.getItem("token");
-//   const cartId = localStorage.getItem("cartId");
-
-//   console.log("Token ==> ", token);
-//   console.log("CartId ==> ", cartId);
-
-//   // ✅ USER MODE
-//   if(token && token !== "null" && token !== "undefined") {
-//     return axios.post(
-//       `${BASE_URL}/add`,
-//       null,
-//       {
-//         params: { productId, quantity },
-//         headers: {
-//           Authorization: `Bearer ${token}`
-//         }
-//       }
-//     );
-//   }
-
-//   // ✅ GUEST MODE
-//   return axios.post(
-//     `${BASE_URL}/add`,
-//     null,
-//     {
-//       params: { cartId, productId, quantity }
-//     }
-//   );
-// };
-
-
-// export const getCart = () => {
-//   const token = localStorage.getItem("token");
-
-//   if(token && token !== "null" && token !== "undefined") {
-//      return getCartWithToken();
-//   } else {
-//     const cartId = getCartId();
-//     if(!cartId) {
-//       return Promise.reject("No Cart found");
-//     } 
-
-//     return getCartWithCartId();
-//   }
-// }
 
 export const getCartWithCartId = () => {
     const cartId = getCartId();

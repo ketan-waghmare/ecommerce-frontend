@@ -3,6 +3,7 @@ import { getAllProducts, deleteProductById } from "../services/productService";
 import "./ProductList.css";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../services/cartService";
+import BannerCarousel from "./BannerCarousel";
 
 function ProductList({ refreshCart }) {
 
@@ -42,6 +43,9 @@ function ProductList({ refreshCart }) {
 
   return (
     <div className="container">
+
+       <BannerCarousel />
+
       {message && (
         <div className="success-message">
           ✅ {message}
